@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SNK IT Institute | Learn To Lead</title>
+
+  <meta name="description" content="SNK IT Institute — Practical IT training, AI-powered courses and career-focused skill development.">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#050505;
+      color:#fff;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1180px,92%);
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(5,5,5,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:115px;
+      height:auto;
+      display:block;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    nav a{
+      color:#c8c8c8;
+      font-size:15px;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:#b7ff00;
+    }
+
+    .nav-btn{
+      background:#b7ff00;
+      color:#050505;
+      padding:11px 19px;
+      border-radius:8px;
+      font-weight:800;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:calc(100vh - 82px);
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 35%,rgba(183,255,0,.15),transparent 27%),
+        radial-gradient(circle at 15% 80%,rgba(183,255,0,.06),transparent 25%),
+        #050505;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      border:1px solid rgba(183,255,0,.08);
+      border-radius:50%;
+      right:-180px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:800px;
+      padding:90px 0;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      color:#b7ff00;
+      border:1px solid rgba(183,255,0,.3);
+      background:rgba(183,255,0,.06);
+      padding:8px 15px;
+      border-radius:50px;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:25px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      background:#b7ff00;
+      border-radius:50%;
+      box-shadow:0 0 12px #b7ff00;
+    }
+
+    .hero h1{
+      font-size:clamp(48px,7vw,88px);
+      line-height:1.02;
+      letter-spacing:-4px;
+      margin-bottom:26px;
+    }
+
+    .hero h1 span{
+      color:#b7ff00;
+    }
+
+    .hero p{
+      max-width:690px;
+      color:#a8a8a8;
+      font-size:18px;
+      margin-bottom:34px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      padding:14px 23px;
+      border-radius:9px;
+      font-weight:800;
+      transition:.3s;
+    }
+
+    .primary{
+      background:#b7ff00;
+      color:#050505;
+    }
+
+    .primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 35px rgba(183,255,0,.2);
+    }
+
+    .secondary{
+      border:1px solid #333;
+      color:#fff;
+    }
+
+    .secondary:hover{
+      border-color:#b7ff00;
+      color:#b7ff00;
+    }
+
+    /* TRUST BAR */
+
+    .trust{
+      border-top:1px solid #181818;
+      border-bottom:1px solid #181818;
+      background:#080808;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .trust-item{
+      padding:28px 15px;
+      text-align:center;
+      border-right:1px solid #181818;
+    }
+
+    .trust-item:last-child{
+      border-right:0;
+    }
+
+    .trust-item strong{
+      display:block;
+      color:#b7ff00;
+      font-size:25px;
+      margin-bottom:3px;
+    }
+
+    .trust-item span{
+      color:#777;
+      font-size:13px;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:100px 0;
+    }
+
+    .label{
+      color:#b7ff00;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:13px;
+    }
+
+    .heading{
+      max-width:720px;
+      margin-bottom:50px;
+    }
+
+    .heading h2{
+      font-size:clamp(35px,5vw,58px);
+      line-height:1.08;
+      letter-spacing:-2px;
+      margin-bottom:16px;
+    }
+
+    .heading p{
+      color:#8f8f8f;
+      font-size:16px;
+    }
+
+    /* COURSES */
+
+    .courses{
+      background:#080808;
+    }
+
+    .course-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .course{
+      background:#101010;
+      border:1px solid #222;
+      border-radius:18px;
+      padding:27px;
+      transition:.3s;
+    }
+
+    .course:hover{
+      transform:translateY(-7px);
+      border-color:rgba(183,255,0,.45);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:13px;
+      background:rgba(183,255,0,.09);
+      font-size:24px;
+      margin-bottom:22px;
+    }
+
+    .course h3{
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .course p{
+      color:#858585;
+      font-size:14px;
+      min-height:90px;
+      margin-bottom:18px;
+    }
+
+    .duration{
+      color:#777;
+      font-size:13px;
+      margin-bottom:7px;
+    }
+
+    .price del{
+      color:#555;
+      font-size:13px;
+      margin-right:7px;
+    }
+
+    .price strong{
+      color:#b7ff00;
+      font-size:22px;
+    }
+
+    .course-btn{
+      display:block;
+      text-align:center;
+      border:1px solid #333;
+      padding:10px;
+      margin-top:20px;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .course-btn:hover{
+      background:#b7ff00;
+      color:#050505;
+    }
+
+    /* WHY */
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .feature{
+      padding:30px;
+      border:1px solid #202020;
+      border-radius:16px;
+      background:#0b0b0b;
+    }
+
+    .feature-number{
+      color:#b7ff00;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1px;
+      margin-bottom:22px;
+    }
+
+    .feature h3{
+      font-size:20px;
+      margin-bottom:9px;
+    }
+
+    .feature p{
+      color:#858585;
+      font-size:14px;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      background:
+        radial-gradient(circle at center,rgba(183,255,0,.12),transparent 45%),
+        #050505;
+    }
+
+    .cta h2{
+      font-size:clamp(40px,6vw,70px);
+      line-height:1.05;
+      letter-spacing:-3px;
+      margin-bottom:20px;
+    }
+
+    .cta h2 span{
+      color:#b7ff00;
+    }
+
+    .cta p{
+      max-width:620px;
+      margin:0 auto 30px;
+      color:#888;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid #1b1b1b;
+      padding:35px 0;
+      color:#666;
+      font-size:13px;
+    }
+
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+    }
+
+    .footer-brand{
+      color:#fff;
+      font-size:17px;
+      font-weight:800;
+    }
+
+    .footer-brand span{
+      color:#b7ff00;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1000px){
+
+      .course-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .features{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:700px){
+
+      nav,
+      .nav-btn{
+        display:none;
+      }
+
+      .brand img{
+        width:100px;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:80px 0;
+      }
+
+      .hero h1{
+        font-size:48px;
+        letter-spacing:-2px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .trust-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .trust-item:nth-child(2){
+        border-right:0;
+      }
+
+      .course-grid,
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:75px 0;
+      }
+
+      .footer{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="#home" class="brand">
+      <img src="logo.png" alt="SNK IT Institute">
+    </a>
+
+    <nav>
+      <a href="#home">হোম</a>
+      <a href="#courses">কোর্সসমূহ</a>
+      <a href="#about">আমাদের সম্পর্কে</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+
+    <a href="#courses" class="nav-btn">কোর্স দেখুন</a>
+
+  </div>
+</header>
+
+<main id="home">
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          <span class="dot"></span>
+          AI-Powered • Practical • Career Focused
+        </div>
+
+        <h1>
+          দক্ষতা শিখুন,<br>
+          <span>ক্যারিয়ার গড়ুন।</span>
+        </h1>
+
+        <p>
+          আধুনিক IT skill, AI-powered tools এবং practical project-এর
+          মাধ্যমে নিজেকে ভবিষ্যতের career-এর জন্য প্রস্তুত করুন।
+          SNK IT Institute — Learn To Lead.
+        </p>
+
+        <div class="buttons">
+          <a href="#courses" class="btn primary">
+            কোর্স দেখুন →
+          </a>
+
+          <a href="#contact" class="btn secondary">
+            যোগাযোগ করুন
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="container trust-grid">
+
+      <div class="trust-item">
+        <strong>100%</strong>
+        <span>Practical Learning</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>AI</strong>
+        <span>Powered Skills</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>Expert</strong>
+        <span>Instructor Support</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>Career</strong>
+        <span>Guidance</span>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container">
+
+      <div class="heading">
+        <div class="label">Why SNK IT Institute</div>
+
+        <h2>
+          শুধু সার্টিফিকেট নয়,
+          <span style="color:#b7ff00;">দক্ষতাই আমাদের লক্ষ্য।</span>
+        </h2>
+
+        <p>
+          আমরা theory-এর চেয়ে practical learning-এ বেশি গুরুত্ব দিই।
+          শেখার পাশাপাশি project, practice এবং career preparation-এর
+          ওপর গুরুত্ব দেওয়া হয়।
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-number">01 — PRACTICAL</div>
+          <h3>হাতে-কলমে ক্লাস</h3>
+          <p>
+            Real-world task, assignment এবং project-এর মাধ্যমে
+            practical skill তৈরি করুন।
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-number">02 — AI POWERED</div>
+          <h3>AI-Powered Learning</h3>
+          <p>
+            বর্তমান digital industry-এর সঙ্গে তাল মিলিয়ে
+            modern AI tools ও workflow শিখুন।
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-number">03 — CAREER</div>
+          <h3>Career Support</h3>
+          <p>
+            Job, freelancing এবং career development-এর জন্য
+            প্রয়োজনীয় guidance পান।
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="courses" id="courses">
+
+    <div class="container">
+
+      <div class="heading">
+        <div class="label">Featured Courses</div>
+
+        <h2>আপনার Career-এর জন্য সঠিক Skill বেছে নিন।</h2>
+
+        <p>
+          Practical training এবং AI-powered workflow-এর মাধ্যমে
+          ভবিষ্যতের জন্য নিজেকে প্রস্তুত করুন।
+        </p>
+      </div>
+
+      <div class="course-grid">
+
+        <div class="course">
+          <div class="icon">🎨</div>
+
+          <h3>AI-Powered UI/UX</h3>
+
+          <p>
+            UI/UX Fundamentals, Figma, User Research,
+            Wireframing, Prototyping এবং AI-powered design workflow।
+          </p>
+
+          <div class="duration">⏱ Duration: 3 Months</div>
+
+          <div class="price">
+            <del>৳11,500</del>
+            <strong>৳7,490</strong>
+          </div>
+
+          <a href="#contact" class="course-btn">
+            ভর্তি সম্পর্কে জানুন →
+          </a>
+        </div>
+
+        <div class="course">
+          <div class="icon">🛡️</div>
+
+          <h3>Cyber Security</h3>
+
+          <p>
+            Cyber Security fundamentals, ethical hacking এবং
+            practical security skills।
+          </p>
+
+          <div class="duration">⏱ Duration: 6 Months</div>
+
+          <div class="price">
+            <del>৳12,500</del>
+            <strong>৳9,500</strong>
+          </div>
+
+          <a href="#contact" class="course-btn">
+            ভর্তি সম্পর্কে জানুন →
+          </a>
+        </div>
+
+        <div class="course">
+          <div class="icon">✦</div>
+
+          <h3>AI Graphic Design</h3>
+
+          <p>
+            Graphic Design fundamentals, modern tools এবং
+            AI-powered creative workflow।
+          </p>
+
+          <div class="duration">⏱ Duration: 4 Months</div>
+
+          <div class="price">
+            <del>৳7,500</del>
+            <strong>৳4,500</strong>
+          </div>
+
+          <a href="#contact" class="course-btn">
+            ভর্তি সম্পর্কে জানুন →
+          </a>
+        </div>
+
+        <div class="course">
+          <div class="icon">🗣️</div>
+
+          <h3>Kidz Spoken English</h3>
+
+          <p>
+            English speaking, vocabulary, pronunciation এবং
+            communication skill development।
+          </p>
+
+          <div class="duration">⏱ Duration: 100 Days</div>
+
+          <div class="price">
+            <del>৳12,500</del>
+            <strong>৳6,500</strong>
+          </div>
+
+          <a href="#contact" class="course-btn">
+            ভর্তি সম্পর্কে জানুন →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="cta" id="contact">
+
+    <div class="container">
+
+      <div class="label">Start Your Journey</div>
+
+      <h2>
+        আপনার Skill-এর<br>
+        <span>পরবর্তী ধাপ শুরু করুন।</span>
+      </h2>
+
+      <p>
+        আজ থেকেই practical skill শেখা শুরু করুন এবং
+        নিজের future career-এর জন্য প্রস্তুতি নিন।
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+
+        <a href="tel:+8801705633700" class="btn primary">
+          📞 যোগাযোগ করুন
+        </a>
+
+        <a href="#courses" class="btn secondary">
+          কোর্সসমূহ দেখুন
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <div class="container footer">
+
+    <div>
+      <div class="footer-brand">
+        SNK <span>IT</span> Institute
+      </div>
+
+      <div>Learn To Lead</div>
+    </div>
+
+    <div>
+      © 2026 SNK IT Institute. সর্বস্বত্ব সংরক্ষিত।
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
+```
